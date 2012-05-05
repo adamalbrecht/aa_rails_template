@@ -1,0 +1,6 @@
+[submodule "spec/support/capybara-page-object-helper"]
+	path = spec/support/capybara-page-object-helper
+	url = git@github.com:adamalbrecht/capybara-page-object-helper.git
+[submodule "spec/support/capybara-request-spec-helpers"]
+	path = spec/support/capybara-request-spec-helpers
+	url = git@github.com:adamalbrecht/capybara-request-spec-helpers.git

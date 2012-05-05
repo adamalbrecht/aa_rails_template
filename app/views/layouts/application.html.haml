@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title= t(:site_title)
+    = stylesheet_link_tag    "application", :media => "all"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => "#"}= t(:site_title)
+          .nav-collapse
+            %ul.nav
+              %li= link_to 'Link 1', '#'
+              %li= link_to 'Link 2', '#'
+              %li= link_to 'Link 3', '#'
+              %li= link_to 'Link 4', '#'
+            %ul.nav.pull-right
+              %li= link_to 'Login', '#'
+    .container
+      .row
+        - flash.each do |name, msg|
+          %div{:class => "alert alert-#{name == :notice ? "success" : name}"}
+            %a.close{"data-dismiss" => "alert"} ×
+            = msg
+      .row
+        .span12= yield
+    = javascript_include_tag "application"
+    = yield(:javascripts)
+    - if @page_name
+      :javascript
+        $(function(){
+
+          var main = new window.CLMain();//JS for every page
+
+          if (typeof(#{@page_name}) != 'undefined') {
+            var page = new #{@page_name}();
+          }
+          var log = function(message) {
+            #{Rails.env.development? ? 'console.log(message);' : ''}
+          }
+        });
+

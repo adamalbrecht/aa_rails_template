@@ -25,7 +25,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
-  gem 'debugger'
+  gem 'debugger' # Since the default debugger doesn't work well with Ruby 1.9.3
   if RUBY_PLATFORM =~ /darwin/ # Macs only
     gem 'rb-fsevent', :require => false
     gem 'growl'

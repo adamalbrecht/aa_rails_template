@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require main
+// The following includes all js/coffee files in the app/assets/javascripts folder
+//= require_tree
